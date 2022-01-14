@@ -1,0 +1,46 @@
+---
+title: "Dyplr"
+author: "Álvarez Letona Manuel"
+date: "14/1/2022"
+output: github_document
+---
+
+# Ejercicios Parte 9.2 y 9.6 R-Dyplr Arrange
+{r cars}
+### Instalamos el paquete "tidyverse"
+```{r}
+library(tidyverse)
+library(nycflights13)
+glimpse(flights)
+```
+
+## Ejercicios Parte 9.2
+
+### ¿Cómo podrías usar arrange() para ordenar todos los valores faltantes al comienzo? (Sugerencia: usa is.na()).
+```{r}
+arrange(flights,desc(is.na(air_time)))
+```
+
+### Ordena vuelos para encontrar los vuelos más retrasados. Encuentra los vuelos que salieron más temprano.
+```{r}
+arrange(flights, desc(dep_delay)) #más retraso
+arrange(flights,  (dep_delay)) #más temprano
+```
+
+### Ordena vuelos para encontrar los vuelos más rápidos (que viajaron a mayor velocidad).
+```{r}
+arrange(flights,desc(distance/air_time))
+```
+### Ordena vuelos para encontrar los vuelos más rápidos (que viajaron a mayor velocidad).
+### velocidad es igual a `distance`/`air_time` (distancia recorrida por minuto)
+```{r}
+arrange(flights,desc(distance/air_time))
+```
+### ¿Cuáles vuelos viajaron más lejos? ¿Cuál viajó más cerca?
+```{r}
+arrange(flights, desc(distance))
+arrange(flights, (distance))
+```
+
+## Ejercicios Parte 9.6
+

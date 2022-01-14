@@ -1,0 +1,14 @@
+install.packages("tidyverse")
+glimpse(flights)
+###9.2
+#¿Cómo podrías usar arrange() para ordenar todos los valores faltantes al comienzo? (Sugerencia: usa is.na()).
+arrange(flights,desc(is.na(air_time)))
+#Ordena vuelos para encontrar los vuelos más retrasados. Encuentra los vuelos que salieron más temprano.
+arrange(flights, desc(dep_delay))#más retraso
+arrange(flights,  (dep_delay))#más temprano
+#Ordena vuelos para encontrar los vuelos más rápidos (que viajaron a mayor velocidad).
+#velocidad es igual a `distance`/`air_time` (distancia recorrida por minuto)
+arrange(flights,desc(distance/air_time))
+#¿Cuáles vuelos viajaron más lejos? ¿Cuál viajó más cerca?
+arrange(flights, desc(distance))
+arrange(flights, (distance))
